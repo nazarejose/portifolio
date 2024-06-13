@@ -1,27 +1,36 @@
 import blob from "../assets/blob.png";
 import { IconButton } from "@material-tailwind/react";
 
-
+const iconsBtn = [
+  {
+    href: "https://www.linkedin.com/in/josenazare",
+    iClass: "fa-brands fa-linkedin-in text-lg"
+  },
+  {
+    href: "mailto:nazarejosecontact@gmail.com",
+    iClass: "fa-solid fa-at text-lg"
+  },
+  {
+    href: "https://github.com/nazarejose",
+    iClass: "fab fa-github text-lg"
+  }
+]
 export function Header() {
   return (
     <div className="w-auto h-[90vh] flex justify-around py-4 items-center mx-[15.5rem]">
       <div className="flex items-center gap-10">
         <div className="flex flex-col gap-4 pb-8">
-          <a href="https://www.linkedin.com/in/josenazare" target="_blank">
-            <IconButton variant="text" className="rounded-full">
-              <i className="fa-brands fa-linkedin-in text-lg" />
-            </IconButton>
-          </a>
-          <a href="mailto:nazarejosecontact@gmail.com" target="_blank">
-            <IconButton variant="text" className="rounded-full">
-              <i className="fa-solid fa-at text-lg" />
-            </IconButton>
-          </a>
-          <a href="https://github.com/nazarejose" target="_blank">
-            <IconButton variant="text" className="rounded-full">
-              <i className="fab fa-github text-lg" />
-            </IconButton>
-          </a>
+          {
+            iconsBtn.map((element)=>{
+              return(
+                <a href={element.href} target="_blank">
+                  <IconButton variant="text" className="rounded-full">
+                    <i className={element.iClass} />
+                  </IconButton>
+                </a>
+              )
+            })
+          }
         </div>
 
           <div className="flex flex-col gap-4">
@@ -41,4 +50,3 @@ export function Header() {
     
   )
 }
-
